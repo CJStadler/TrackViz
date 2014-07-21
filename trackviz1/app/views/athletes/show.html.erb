@@ -1,0 +1,23 @@
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<h1>Athlete Page</h1>
+<P>
+	<strong>Name:</strong>
+	<%= @athlete.name %>
+</p>
+<P>
+	<strong>ID:</strong>
+	<%= @athlete.id %>
+</p>
+
+<script>
+var url = "<%= j athlete_path(@athlete) %>.json"
+console.log(url)
+
+d3.json(url, function(error, json) {
+
+	if (error) return console.warn(error);
+	
+	console.log(json)
+})
+</script>

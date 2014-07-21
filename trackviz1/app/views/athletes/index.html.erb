@@ -1,0 +1,12 @@
+<h1>Athletes</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+	</tr>
+	<% @athletes.each do |athlete| %>
+		<tr>
+			<td><%= link_to athlete.name, athlete %>
+		</tr>
+	<% end %>
+</table>
