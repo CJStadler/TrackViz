@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	
 	resources :athletes
+	resources :performances
 	
 	root 'athletes#index'
 

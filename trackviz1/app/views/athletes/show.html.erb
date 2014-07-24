@@ -10,14 +10,59 @@
 	<%= @athlete.id %>
 </p>
 
-<script>
-var url = "<%= j athlete_path(@athlete) %>.json"
-console.log(url)
+<h2>Performances</h1>
+<table>
+	<tr>
+		<th>Distance</th>
+		<th>Time</th>
+		<th>Place</th>
+		<th>Meet</th>
+		<th>Date and Time</th>
+	<tr>
+	<% @athlete.performances.order(:race_datetime).each do |performance| %>
+		<tr>
+			<td><%= performance.distance %></td>
+			<td><%= performance.time %></td>
+			<td><%= performance.place %></td>
+			<td><%= performance.meet %></td>
+			<td><%= performance.race_datetime %></td>
+		</tr>
+	<% end %>
+</table>
 
-d3.json(url, function(error, json) {
+<div id='viz'></div>
 
-	if (error) return console.warn(error);
+<h2>Add a Performance</h2>
+<%= form_for :performance, url: performances_path do |f| %>
+	<%= f.hidden_field :athlete_id, value: @athlete.id %>
+	<p>
+		<%= f.label :time %><br>
+		<%= f.number_field :time, :step => 'any' %>
+	</p>
+	<p>
+		<%= f.label :place %><br>
+		<%= f.number_field :place %>
+	</p>
+	<p>
+		<%= f.label :meet %><br>
+		<%= f.text_field :meet %>
+	</p>
+	<p>
+		<%= f.label :distance %><br>
+		<%= f.number_field :distance %>
+	</p>
+	<p>
+		<%= f.label :race_datetime %><br>
+		<%= f.datetime_local_field :race_datetime %>
+	</p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %> 
+
+
 	
-	console.log(json)
-})
+<script>
+// var path = "<%= j athlete_path(@athlete) %>"
+// passing off to Paloma controller
 </script>

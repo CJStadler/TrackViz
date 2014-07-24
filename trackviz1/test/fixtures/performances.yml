@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2014-07-22 15:29:31
+  place: 1
+  distance: 1
+  meet: MyString
+  race_datetime: 2014-07-22 15:29:31
+  athlete_id: 
+
+two:
+  time: 2014-07-22 15:29:31
+  place: 1
+  distance: 1
+  meet: MyString
+  race_datetime: 2014-07-22 15:29:31
+  athlete_id: 

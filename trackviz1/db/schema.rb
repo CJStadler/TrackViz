@@ -11,12 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721212351) do
+ActiveRecord::Schema.define(version: 20140723141506) do
 
   create_table "athletes", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "performances", force: true do |t|
+    t.float    "time"
+    t.integer  "place"
+    t.integer  "distance"
+    t.string   "meet"
+    t.datetime "race_datetime"
+    t.integer  "athlete_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "performances", ["athlete_id"], name: "index_performances_on_athlete_id"
 
 end

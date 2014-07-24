@@ -16,9 +16,11 @@ class AthletesController < ApplicationController
 	def show
 		@athlete = Athlete.find(params[:id])
 		
+		js :performances => @athlete.performances.order(:race_datetime)
+		
 		respond_to do |format|
 			format.html
-			format.json { render json: @athlete }
+			format.json { render json: @athlete.performances }
 		end
 	end
 	

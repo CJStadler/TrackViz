@@ -13,5 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= requre paloma
 //= require_tree .
+//= require paloma
+
+var AthletesController = Paloma.controller('Athletes');
+
+AthletesController.prototype.show= function(){
+   //get_athlete();
+   //log_json(this.params['athlete']);
+   graph_performances(this.params['performances']);
+}
